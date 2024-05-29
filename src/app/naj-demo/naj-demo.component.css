@@ -2,10 +2,14 @@
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #4a235a; /* Dark purple */
-  color: #ffffff; /* White text */
+  background-color: rgba(
+    255,
+    235,
+    235,
+    0.9
+  ); /* Slightly darker red-ish transparent background */
+  color: #333; /* Dark text */
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .profile-section {
@@ -15,9 +19,9 @@
   margin-bottom: 20px;
 }
 
-.profile-section .connect-button {
-  background-color: #c0392b; /* Red */
-  color: #ffffff;
+.connect-button {
+  background-color: #e53935; /* Angular red */
+  color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -25,17 +29,17 @@
   transition: background-color 0.3s;
 }
 
-.profile-section .connect-button:hover {
-  background-color: #a93226; /* Darker red on hover */
+.connect-button:hover {
+  background-color: #c62828; /* Darker red on hover */
 }
 
 .account-id {
   font-size: 1.2em;
 }
 
-.metadata-section .metadata-button {
-  background-color: #c0392b; /* Red */
-  color: #ffffff;
+.metadata-button {
+  background-color: #e53935; /* Angular red */
+  color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -44,16 +48,17 @@
   margin-bottom: 20px;
 }
 
-.metadata-section .metadata-button:hover {
-  background-color: #a93226; /* Darker red on hover */
+.metadata-button:hover {
+  background-color: #c62828; /* Darker red on hover */
 }
 
 .token-info {
-  background-color: #512e5f; /* Darker purple for metadata */
+  background-color: #fff; /* White background */
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  border: 1px solid rgba(229, 57, 53, 0.5); /* Subtle red border */
 }
 
 .token-info p {
@@ -67,24 +72,24 @@
   margin-top: 20px;
 }
 
-.transfer-section .transfer-label {
+.transfer-label {
   font-size: 1.2em;
   margin-bottom: 10px;
 }
 
-.transfer-section .input-field {
-  background-color: #6c3483; /* Dark purple */
-  color: #ffffff;
-  border: 1px solid #7d3c98; /* Lighter purple */
+.input-field {
+  background-color: #fff; /* White background */
+  color: #333; /* Dark text */
+  border: 1px solid #ccc; /* Lighter border color */
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
   width: 97%;
 }
 
-.transfer-section .send-button {
-  background-color: #c0392b; /* Red */
-  color: #ffffff;
+.send-button {
+  background-color: #e53935; /* Angular red */
+  color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -93,6 +98,6 @@
   width: 100%;
 }
 
-.transfer-section .send-button:hover {
-  background-color: #a93226; /* Darker red on hover */
+.send-button:hover {
+  background-color: #c62828; /* Darker red on hover */
 }
