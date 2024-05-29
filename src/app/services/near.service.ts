@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as nearAPI from 'near-api-js';
+import { Buffer } from 'buffer';
+window.Buffer = window.Buffer || Buffer;
 
 @Injectable({
   providedIn: 'root',
