@@ -2,13 +2,8 @@
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
-  background-color: rgba(
-    255,
-    235,
-    235,
-    0.9
-  ); /* Slightly darker red-ish transparent background */
-  color: #333; /* Dark text */
+  background-color: rgba(255, 235, 235, 0.9);
+  color: #333;
   border-radius: 8px;
 }
 
@@ -20,7 +15,7 @@
 }
 
 .connect-button {
-  background-color: #e53935; /* Angular red */
+  background-color: #e53935;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -30,7 +25,7 @@
 }
 
 .connect-button:hover {
-  background-color: #c62828; /* Darker red on hover */
+  background-color: #c62828;
 }
 
 .account-id {
@@ -38,7 +33,7 @@
 }
 
 .metadata-button {
-  background-color: #e53935; /* Angular red */
+  background-color: #e53935;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -49,16 +44,16 @@
 }
 
 .metadata-button:hover {
-  background-color: #c62828; /* Darker red on hover */
+  background-color: #c62828;
 }
 
 .token-info {
-  background-color: #fff; /* White background */
+  background-color: #fff;
   padding: 15px;
   border-radius: 8px;
   margin-top: 20px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-  border: 1px solid rgba(229, 57, 53, 0.5); /* Subtle red border */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(229, 57, 53, 0.5);
 }
 
 .token-info p {
@@ -78,9 +73,9 @@
 }
 
 .input-field {
-  background-color: #fff; /* White background */
-  color: #333; /* Dark text */
-  border: 1px solid #ccc; /* Lighter border color */
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
@@ -88,7 +83,7 @@
 }
 
 .send-button {
-  background-color: #e53935; /* Angular red */
+  background-color: #e53935;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -99,5 +94,5 @@
 }
 
 .send-button:hover {
-  background-color: #c62828; /* Darker red on hover */
+  background-color: #c62828;
 }
