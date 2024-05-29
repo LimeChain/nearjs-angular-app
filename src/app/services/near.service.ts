@@ -53,7 +53,7 @@ export class NearService {
     });
   }
 
-  stateChangeFunctionCall = async (amount: string, receiver: string) => {
+  async stateChangeFunctionCall(amount: string, receiver: string) {
     try {
       const functionCallRes = await this.walletConnection
         .account()
@@ -70,5 +70,5 @@ export class NearService {
     } catch (error) {
       console.error('Error during function call:', error);
     }
-  };
+  }
 }

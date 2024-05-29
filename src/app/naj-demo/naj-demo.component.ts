@@ -29,6 +29,15 @@ export class NajDemoComponent implements OnInit {
     this.isInitialized = true;
   }
 
+  async ngAfterViewInit() {
+    await this.nearService.init();
+    if (this.nearService.currentUser) {
+      this.accountId = this.nearService.currentUser.accountId;
+      this.connected = true;
+    }
+    this.isInitialized = true;
+  }
+
   async handleConnect() {
     try {
       await this.nearService.connect();
