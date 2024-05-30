@@ -17,12 +17,13 @@
       <p>Token Decimals: {{ tokenMetadata?.decimals }}</p>
     </div>
     <div class="transfer-section">
-      <label class="transfer-label">Send USDT</label>
+      <label for="amount" class="transfer-label">Send USDT</label>
       <input
         [(ngModel)]="amount"
         type="number"
         placeholder="Amount"
         class="input-field"
+        id="amount"
       />
       <input
         [(ngModel)]="receiver"

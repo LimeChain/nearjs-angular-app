@@ -1,14 +1,27 @@
 import { Injectable } from '@angular/core';
 import * as nearAPI from 'near-api-js';
 import { Buffer } from 'buffer';
+import { Account } from 'near-api-js';
 window.Buffer = window.Buffer || Buffer;
+
+interface User {
+  accountId: string;
+  balance: string;
+}
+
+interface WalletConnection {
+  getAccountId(): string;
+  requestSignIn(options: { contractId: string; methodNames: string[] }): void;
+  signOut(): void;
+  account(): Account;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class NearService {
-  walletConnection: any;
-  currentUser: any = null;
+  walletConnection: WalletConnection | null = null;
+  currentUser: User | null = null;
 
   async init() {
     const near = await nearAPI.connect({
@@ -36,10 +49,10 @@ export class NearService {
 
   async connect() {
     if (this.currentUser) {
-      await this.walletConnection.signOut();
+      await this.walletConnection?.signOut();
       this.currentUser = null;
     } else {
-      await this.walletConnection.requestSignIn({
+      await this.walletConnection?.requestSignIn({
         contractId: 'usdt.tether-token.near',
         methodNames: ['ft_metadata', 'ft_transfer'],
       });
@@ -47,7 +60,7 @@ export class NearService {
   }
 
   async getTokenMetadata() {
-    return await this.walletConnection.account().viewFunction({
+    return await this.walletConnection?.account().viewFunction({
       contractId: 'usdt.tether-token.near',
       methodName: 'ft_metadata',
     });
@@ -56,7 +69,7 @@ export class NearService {
   async stateChangeFunctionCall(amount: string, receiver: string) {
     try {
       const functionCallRes = await this.walletConnection
-        .account()
+        ?.account()
         .functionCall({
           contractId: 'usdt.tether-token.near',
           methodName: 'ft_transfer',
@@ -64,7 +77,7 @@ export class NearService {
             amount,
             receiver_id: receiver,
           },
-          attachedDeposit: '1',
+          attachedDeposit: BigInt('1'),
         });
       console.log('Function Call Response: ', functionCallRes);
     } catch (error) {

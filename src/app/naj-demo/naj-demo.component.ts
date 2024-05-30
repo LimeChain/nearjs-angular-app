@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NearService } from '../services/near.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+
+interface TokenMetadata {
+  symbol: string;
+  name: string;
+  decimals: number;
+}
 
 @Component({
   standalone: true,
@@ -10,10 +16,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './naj-demo.component.html',
   styleUrls: ['./naj-demo.component.css'],
 })
-export class NajDemoComponent implements OnInit {
+export class NajDemoComponent implements OnInit, AfterViewInit {
   connected = false;
-  accountId = null;
-  tokenMetadata: any;
+  accountId: string | null = null;
+  tokenMetadata: TokenMetadata | null = null;
   amount = '';
   receiver = '';
   isInitialized = false;
