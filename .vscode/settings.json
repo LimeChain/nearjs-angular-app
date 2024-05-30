@@ -1,0 +1,13 @@
+{
+  "eslint.enable": true,
+  "eslint.validate": ["javascript", "typescript", "html", "css"],
+  "eslint.options": {
+    "extensions": [".js", ".ts", ".html", ".css"]
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "files.autoSave": "onWindowChange"
+}
