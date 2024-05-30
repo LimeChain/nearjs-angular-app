@@ -1,29 +1,34 @@
 <div class="container">
   <div class="profile-section">
-    <button (click)="handleConnect()" class="connect-button">
-      {{ !connected ? "Connect" : "Disconnect" }}
-    </button>
+    <app-button
+      [label]="!connected ? 'Connect' : 'Disconnect'"
+      [onClick]="handleConnect.bind(this)"
+      cssClass="connect-button"
+    >
+    </app-button>
     <p *ngIf="connected" class="account-id">
       Current Account ID: {{ accountId }}
     </p>
   </div>
   <div *ngIf="connected" class="metadata-section">
-    <button (click)="readMetadata()" class="metadata-button">
-      Read Token Metadata
-    </button>
+    <app-button
+      label="Read Token Metadata"
+      [onClick]="readMetadata.bind(this)"
+      cssClass="metadata-button"
+    >
+    </app-button>
     <div *ngIf="tokenMetadata" class="token-info">
       <p>Token Name: {{ tokenMetadata?.name }}</p>
       <p>Token Symbol: {{ tokenMetadata?.symbol }}</p>
       <p>Token Decimals: {{ tokenMetadata?.decimals }}</p>
     </div>
     <div class="transfer-section">
-      <label for="amount" class="transfer-label">Send USDT</label>
+      <label class="transfer-label">Send USDT</label>
       <input
         [(ngModel)]="amount"
         type="number"
         placeholder="Amount"
         class="input-field"
-        id="amount"
       />
       <input
         [(ngModel)]="receiver"
@@ -31,9 +36,12 @@
         placeholder="Receiver ID"
         class="input-field"
       />
-      <button (click)="stateChangeFunctionCall()" class="send-button">
-        Send
-      </button>
+      <app-button
+        label="Send"
+        [onClick]="stateChangeFunctionCall.bind(this)"
+        cssClass="send-button"
+      >
+      </app-button>
     </div>
   </div>
 </div>

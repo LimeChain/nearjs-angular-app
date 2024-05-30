@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NearService } from '../services/near.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from '../Button/Button.component';
 
 interface TokenMetadata {
   symbol: string;
@@ -12,7 +13,7 @@ interface TokenMetadata {
 @Component({
   standalone: true,
   selector: 'app-naj-demo',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ButtonComponent],
   templateUrl: './naj-demo.component.html',
   styleUrls: ['./naj-demo.component.css'],
 })
