@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as nearAPI from 'near-api-js';
 import { Buffer } from 'buffer';
 import { User, WalletConnection } from './interfaces';
-import ConnectConfig from '../pages/config/connect-config';
+import ConnectConfig from '../config/connect-config';
 window.Buffer = window.Buffer || Buffer;
 
 @Injectable({
