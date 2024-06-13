@@ -1,4 +1,4 @@
 import { Routes } from '@angular/router';
-import { NajDemoComponent } from './naj-demo/naj-demo.component';
+import { HomeComponent } from './home/home.component';
 
-export const routes: Routes = [{ path: '', component: NajDemoComponent }];
+export const routes: Routes = [{ path: '', component: HomeComponent }];

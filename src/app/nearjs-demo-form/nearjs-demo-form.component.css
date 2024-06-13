@@ -1,0 +1,44 @@
+.form-wrapper {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(255, 235, 235, 0.9);
+  color: #333;
+  border-radius: 8px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.account-id {
+  font-size: 1.2em;
+}
+
+.token-info {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(229, 57, 53, 0.5);
+}
+
+.token-info p {
+  margin: 10px 0;
+}
+
+.transfer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.transfer-label {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}

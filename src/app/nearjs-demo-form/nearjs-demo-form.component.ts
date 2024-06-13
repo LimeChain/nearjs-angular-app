@@ -1,8 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { NearService } from '../services/near.service';
+import { NearConnectionService } from '../services/near-connection.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from '../Button/Button.component';
 
 interface TokenMetadata {
   symbol: string;
@@ -12,12 +11,12 @@ interface TokenMetadata {
 
 @Component({
   standalone: true,
-  selector: 'app-naj-demo',
-  imports: [CommonModule, FormsModule, ButtonComponent],
-  templateUrl: './naj-demo.component.html',
-  styleUrls: ['./naj-demo.component.css'],
+  selector: 'nearjs-demo-form',
+  imports: [CommonModule, FormsModule],
+  templateUrl: './nearjs-demo-form.component.html',
+  styleUrls: ['./nearjs-demo-form.component.css'],
 })
-export class NajDemoComponent implements OnInit, AfterViewInit {
+export class NearjsDemoFormComponent implements OnInit, AfterViewInit {
   connected = false;
   accountId: string | null = null;
   tokenMetadata: TokenMetadata | null = null;
@@ -25,21 +24,21 @@ export class NajDemoComponent implements OnInit, AfterViewInit {
   receiver = '';
   isInitialized = false;
 
-  constructor(private nearService: NearService) {}
+  constructor(private nearConnection: NearConnectionService) {}
 
   async ngOnInit() {
-    await this.nearService.init();
-    if (this.nearService.currentUser) {
-      this.accountId = this.nearService.currentUser.accountId;
+    await this.nearConnection.init();
+    if (this.nearConnection.currentUser) {
+      this.accountId = this.nearConnection.currentUser.accountId;
       this.connected = true;
     }
     this.isInitialized = true;
   }
 
   async ngAfterViewInit() {
-    await this.nearService.init();
-    if (this.nearService.currentUser) {
-      this.accountId = this.nearService.currentUser.accountId;
+    await this.nearConnection.init();
+    if (this.nearConnection.currentUser) {
+      this.accountId = this.nearConnection.currentUser.accountId;
       this.connected = true;
     }
     this.isInitialized = true;
@@ -47,9 +46,9 @@ export class NajDemoComponent implements OnInit, AfterViewInit {
 
   async handleConnect() {
     try {
-      await this.nearService.connect();
-      if (this.nearService.currentUser) {
-        this.accountId = this.nearService.currentUser.accountId;
+      await this.nearConnection.connect();
+      if (this.nearConnection.currentUser) {
+        this.accountId = this.nearConnection.currentUser.accountId;
         this.connected = true;
       } else {
         this.connected = false;
@@ -62,7 +61,7 @@ export class NajDemoComponent implements OnInit, AfterViewInit {
 
   async readMetadata() {
     try {
-      this.tokenMetadata = await this.nearService.getTokenMetadata();
+      this.tokenMetadata = await this.nearConnection.getTokenMetadata();
     } catch (error) {
       console.error('Error fetching metadata:', error);
     }
@@ -70,7 +69,7 @@ export class NajDemoComponent implements OnInit, AfterViewInit {
 
   async stateChangeFunctionCall() {
     try {
-      await this.nearService.stateChangeFunctionCall(
+      await this.nearConnection.stateChangeFunctionCall(
         this.amount,
         this.receiver
       );

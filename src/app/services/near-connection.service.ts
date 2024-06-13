@@ -1,38 +1,19 @@
 import { Injectable } from '@angular/core';
 import * as nearAPI from 'near-api-js';
 import { Buffer } from 'buffer';
-import { Account } from 'near-api-js';
+import { User, WalletConnection } from './interfaces';
+import ConnectConfig from '../pages/config/connect-config';
 window.Buffer = window.Buffer || Buffer;
-
-interface User {
-  accountId: string;
-  balance: string;
-}
-
-interface WalletConnection {
-  getAccountId(): string;
-  requestSignIn(options: { contractId: string; methodNames: string[] }): void;
-  signOut(): void;
-  account(): Account;
-}
 
 @Injectable({
   providedIn: 'root',
 })
-export class NearService {
+export class NearConnectionService {
   walletConnection: WalletConnection | null = null;
   currentUser: User | null = null;
 
   async init() {
-    const near = await nearAPI.connect({
-      deps: {
-        keyStore: new nearAPI.keyStores.BrowserLocalStorageKeyStore(),
-      },
-      networkId: 'mainnet',
-      nodeUrl: 'https://rpc.mainnet.near.org',
-      walletUrl: 'https://app.mynearwallet.com/',
-      helperUrl: 'https://helper.mainnet.near.org',
-    });
+    const near = await nearAPI.connect(ConnectConfig.deps);
 
     this.walletConnection = new nearAPI.WalletConnection(
       near,

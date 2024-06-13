@@ -1,0 +1,38 @@
+<div class="form-wrapper">
+  <div class="profile-section">
+    <button (click)="handleConnect()" cssClass="connect-button">
+      {{ !connected ? "Connect" : "Disconnect" }}
+    </button>
+    <p *ngIf="connected" class="account-id">
+      Current Account ID: {{ accountId }}
+    </p>
+  </div>
+  <div *ngIf="connected" class="metadata-section">
+    <button (click)="readMetadata()" cssClass="metadata-button">
+      Read Token Metadata
+    </button>
+    <div *ngIf="tokenMetadata" class="token-info">
+      <p>Token Name: {{ tokenMetadata.name }}</p>
+      <p>Token Symbol: {{ tokenMetadata.symbol }}</p>
+      <p>Token Decimals: {{ tokenMetadata.decimals }}</p>
+    </div>
+    <div class="transfer-section">
+      <label class="transfer-label">Send USDT</label>
+      <input
+        [(ngModel)]="amount"
+        type="number"
+        placeholder="Amount"
+        class="input-field"
+      />
+      <input
+        [(ngModel)]="receiver"
+        type="text"
+        placeholder="Receiver ID"
+        class="input-field"
+      />
+      <button (click)="stateChangeFunctionCall()" cssClass="send-button">
+        Send
+      </button>
+    </div>
+  </div>
+</div>
